@@ -15,7 +15,7 @@ public class GestionInformatikAlmi extends JFrame {
 	private Login login;
 	private Componentes componentes;
 	private Carrito carrito;
-	private Cliente cliente;
+	private GestionClientes gestionClientes;
 	private CardLayout cards;
 	
 	
@@ -51,12 +51,12 @@ public class GestionInformatikAlmi extends JFrame {
 		login= new Login(this);
 		componentes=new Componentes(this);
 		carrito=new Carrito(this);	
-		cliente=new Cliente(this);
+		gestionClientes=new GestionClientes(this);
 		
 		contentPane.add(login,"login"); 
 		contentPane.add(componentes,"componentes");
 		contentPane.add(carrito,"carrito");
-		contentPane.add(cliente,"cliente"); 
+		contentPane.add(gestionClientes,"cliente"); 
 		cards.show(contentPane, "login");
 		
 		
@@ -80,8 +80,8 @@ public class GestionInformatikAlmi extends JFrame {
 		return carrito;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public GestionClientes getGestionClientes() {
+		return gestionClientes;
 	}
 
 	public CardLayout getCards() {
@@ -100,8 +100,8 @@ public class GestionInformatikAlmi extends JFrame {
 		this.carrito = carrito;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setGestionClientes(GestionClientes gestionClientes) {
+		this.gestionClientes = gestionClientes;
 	}
 
 	public void setCards(CardLayout cards) {

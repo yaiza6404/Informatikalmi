@@ -44,82 +44,83 @@ public class BaseDatos {
 		}
 		return rs;
 	}
-}
 
-//FUNCIONES
-//CERRAR LA CONEXION
-public void cerrarConexion() {
-	try {
-		cn.close();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+
+	//FUNCIONES
+	//CERRAR LA CONEXION
+	public void cerrarConexion() {
+		try {
+			cn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-}
 
-//INSERTAR CLIENTE
-public int InsertarCliente(String id,String nombre,String apellido1,String apellido2,String telefono,String provincia,String ciudad,String calle,String numero,String cp) {
-	String consulta;
-	PreparedStatement stmt;
+	//INSERTAR CLIENTE
+	public int InsertarCliente(String id,String nombre,String apellido1,String apellido2,String telefono,String provincia,String ciudad,String calle,String numero,String cp) {
+		String consulta;
+		PreparedStatement stmt;
 
-	//CREAR LA SENTENCIA
-	consulta="INSERT INTO Clientes VALUES (?,?,?,?,?,?,?,?,?)";
-	try {
-		stmt=cn.prepareStatement(consulta);
-		stmt.setString(1, id);
-		stmt.setString(2, nombre);
-		stmt.setString(3, apellido1);
-		stmt.setString(4, apellido2);
-		stmt.setString(5, telefono);
-		stmt.setString(6, provincia);
-		stmt.setString(7, ciudad);
-		stmt.setString(8, calle);
-		stmt.setString(9, numero);
-		stmt.setString(10, cp);
+		//CREAR LA SENTENCIA
+		consulta="INSERT INTO Clientes(DNI,nombre,apellido1,apellido2,telefono,codigo_postal,numero,provincia,ciudad,calle) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		try {
+			stmt=cn.prepareStatement(consulta);
+			stmt.setString(1, id);
+			stmt.setString(2, nombre);
+			stmt.setString(3, apellido1);
+			stmt.setString(4, apellido2);
+			stmt.setString(5, telefono);
+			stmt.setString(6, cp);
+			stmt.setString(7, numero);
+			stmt.setString(8, provincia);
+			stmt.setString(9, ciudad);
+			stmt.setString(10, calle);
 
-		return stmt.executeUpdate();
+			return stmt.executeUpdate();
 
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+
 	}
-	return 0;
-}
-
-                
 
 
 
 
 
-public Connection getCn() {
-	return cn;
-}
 
 
-public String getUsuario() {
-	return usuario;
-}
+	public Connection getCn() {
+		return cn;
+	}
 
 
-public String getContrasena() {
-	return contrasena;
-}
+	public String getUsuario() {
+		return usuario;
+	}
 
 
-public void setCn(Connection cn) {
-	this.cn = cn;
-}
+	public String getContrasena() {
+		return contrasena;
+	}
 
 
-public void setUsuario(String usuario) {
-	this.usuario = usuario;
-}
+	public void setCn(Connection cn) {
+		this.cn = cn;
+	}
 
 
-public void setContrasena(String contrasena) {
-	this.contrasena = contrasena;
-}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
 }
 
 
